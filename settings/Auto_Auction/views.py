@@ -10,7 +10,6 @@ from rest_framework import viewsets
 from rest_framework.generics import GenericAPIView
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 
@@ -70,6 +69,8 @@ class CarViewSet(viewsets.ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
     permission_classes = [CheckStatus]
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_class = CarFilterSet
 
 class AuctionViewSet(viewsets.ModelViewSet):
     queryset = Auction.objects.all()

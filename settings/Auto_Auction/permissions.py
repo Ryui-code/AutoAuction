@@ -24,6 +24,8 @@ class CheckStatus(BasePermission):
         if role == 'Seller':
             if model_name == 'Auction':
                 return True
+            if model_name == 'Car':
+                return True
             if model_name == 'Feedback':
                 return request.method in SAFE_METHODS
             return False

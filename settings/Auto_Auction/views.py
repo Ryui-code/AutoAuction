@@ -1,7 +1,3 @@
-from collections import defaultdict
-
-from django.db.models import CharField
-from rest_framework import status
 from .filter import CarFilterSet
 from .permissions import CheckStatus
 from rest_framework.views import APIView
